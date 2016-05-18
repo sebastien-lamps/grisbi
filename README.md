@@ -1,2 +1,1 @@
 # grisbi
-# grisbi
