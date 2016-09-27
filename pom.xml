@@ -7,7 +7,7 @@
 	<!-- Project configuration -->
 	<!-- ======================================================== -->
 	<groupId>fr.slamps</groupId>
-	<artifactId>grisbi</artifactId>
+	<artifactId>ithunes</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<description>iWays SKU Catalog Web module</description>
@@ -28,9 +28,9 @@
 	<!-- Modules configuration -->
 	<!-- ======================================================== -->
 	<modules>
-		<module>grisbi-core</module>
-		<module>grisbi-rest</module>
-		<module>grisbi-web</module>
+		<module>ithunes-core</module>
+		<module>ithunes-rest</module>
+		<module>ithunes-web</module>
 	</modules>
 
 	<!-- ======================================================== -->
