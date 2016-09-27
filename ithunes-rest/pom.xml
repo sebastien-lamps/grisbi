@@ -1,0 +1,167 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- ======================================================== -->
+	<!-- Parent -->
+	<!-- ======================================================== -->
+	<parent>
+		<groupId>fr.slamps</groupId>
+		<artifactId>ithunes</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<!-- ======================================================== -->
+	<!-- Project configuration -->
+	<!-- ======================================================== -->
+	<artifactId>ithunes-rest</artifactId>
+	<packaging>war</packaging>
+
+	<!-- =================================================== -->
+	<!-- Project properties -->
+	<!-- =================================================== -->
+	<properties>
+		<jersey.version>2.23.2</jersey.version>
+		<jersey-media-json-jackson.version>2.4.1</jersey-media-json-jackson.version>
+		<swagger.version>1.5.0</swagger.version>
+	</properties>
+
+	<!-- ======================================================== -->
+	<!-- Dependencies configuration -->
+	<!-- ======================================================== -->
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>ithunes-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+		<!-- Jersey -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.ext</groupId>
+			<artifactId>jersey-spring3</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+
+		<!-- Swagger -->
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jersey2-jaxrs</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<!-- Binding SLF4J for Log4J -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-web</artifactId>
+		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Run the application using "mvn jetty:run" to deploy to Jetty-->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.kongchen</groupId>
+				<artifactId>swagger-maven-plugin</artifactId>
+				<version>3.1.4</version>
+				<configuration>
+					<apiSources>
+						<apiSource>
+							<springmvc>false</springmvc>
+							<locations>com.testcompany.testproject.rest.resource</locations>
+							<schemes>http,https</schemes>
+							<host>www.[host]:[port]</host>
+							<basePath>/v1</basePath>
+							<info>
+								<title>Swagger spec for our REST API</title>
+								<version>v1</version>
+								<description>This is a sample spec for our REST API</description>
+								<termsOfService>
+									http://www.testcompany.com/terms-and-conditions
+								</termsOfService>
+								<contact>
+									<email>SureshSatyam(@)testcompany.com</email>
+									<name>Suresh Satyam</name>
+									<url>http://www.testcompany.com</url>
+								</contact>
+								<license>
+									<url>http://www.testcompany.com/licenses/LICENSE-2.0.html</url>
+									<name>Company Licence</name>
+								</license>
+							</info>
+							<swaggerDirectory>src/main/webapp/</swaggerDirectory>
+						</apiSource>
+					</apiSources>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>io.github.robwin</groupId>
+				<artifactId>swagger2markup-maven-plugin</artifactId>
+				<version>0.9.3</version>
+				<configuration>
+					<inputDirectory>src/main/webapp/</inputDirectory>
+					<swaggerFile>swagger.json</swaggerFile>
+					<outputDirectory>asciidoc</outputDirectory>
+					<markupLanguage>asciidoc</markupLanguage>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>process-swagger</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+

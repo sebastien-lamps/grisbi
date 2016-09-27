@@ -1,0 +1,23 @@
+= Swagger spec for our REST API
+
+== Overview
+This is a sample spec for our REST API
+
+=== Version information
+Version: v1
+
+=== Contact information
+Contact: Suresh Satyam
+Contact Email: SureshSatyam(@)testcompany.com
+
+=== License information
+License: Company Licence
+License URL: http://www.testcompany.com/licenses/LICENSE-2.0.html
+
+Terms of service: http://www.testcompany.com/terms-and-conditions
+
+=== URI scheme
+Host: www.[host]:[port]
+BasePath: /v1
+Schemes: HTTP, HTTPS
+
