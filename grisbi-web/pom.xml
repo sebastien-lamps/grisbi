@@ -15,33 +15,21 @@
 	<!-- ======================================================== -->
 	<!-- Project configuration -->
 	<!-- ======================================================== -->
-	<artifactId>grisbi-core</artifactId>
-	<packaging>jar</packaging>
+	<artifactId>grisbi-web</artifactId>
+	<packaging>war</packaging>
 
 	<!-- =================================================== -->
 	<!-- Project properties -->
 	<!-- =================================================== -->
 	<properties>
-		<itext.version>5.0.6</itext.version>
-		<lombok.version>1.16.10</lombok.version>
+
 	</properties>
 
 	<!-- ======================================================== -->
 	<!-- Dependencies configuration -->
 	<!-- ======================================================== -->
 	<dependencies>
-		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>itextpdf</artifactId>
-			<version>${itext.version}</version>
-		</dependency>
 
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
-			<scope>provided</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>

@@ -1,8 +1,12 @@
 package fr.slamps.grisbi.core.service;
 
-/**
- * Created by slamps on 30/05/16.
- */
-public class AccountService {
+import fr.slamps.grisbi.core.domain.Account;
+import fr.slamps.grisbi.core.domain.Record;
 
+import java.util.List;
+
+public interface AccountService {
+	Account getAccount();
+
+	List<Record> getRecords(Account account);
 }

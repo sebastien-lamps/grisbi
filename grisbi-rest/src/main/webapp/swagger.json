@@ -1,0 +1,21 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is a sample spec for our REST API",
+    "version" : "v1",
+    "title" : "Swagger spec for our REST API",
+    "termsOfService" : "http://www.testcompany.com/terms-and-conditions",
+    "contact" : {
+      "name" : "Suresh Satyam",
+      "url" : "http://www.testcompany.com",
+      "email" : "SureshSatyam(@)testcompany.com"
+    },
+    "license" : {
+      "name" : "Company Licence",
+      "url" : "http://www.testcompany.com/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "www.[host]:[port]",
+  "basePath" : "/v1",
+  "schemes" : [ "http", "https" ]
+}

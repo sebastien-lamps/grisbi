@@ -8,7 +8,7 @@ import lombok.Setter;
 public abstract class Transaction implements Record {
 	@Getter
 	@Setter
-	private LocalDateTime dateTime;
+	private LocalDateTime date;
 
 	@Getter
 	@Setter

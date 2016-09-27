@@ -18,6 +18,10 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<encoding>UTF-8</encoding>
+
+		<spring.version>4.3.3.RELEASE</spring.version>
+		<slf4j.version>1.7.12</slf4j.version>
+		<log4j2.version>2.4.1</log4j2.version>
 	</properties>
 
 	<!-- ======================================================== -->
@@ -25,6 +29,8 @@
 	<!-- ======================================================== -->
 	<modules>
 		<module>grisbi-core</module>
+		<module>grisbi-rest</module>
+		<module>grisbi-web</module>
 	</modules>
 
 	<!-- ======================================================== -->
@@ -43,6 +49,51 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<!-- Logging -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<!-- Binding SLF4J for Log4J -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-slf4j-impl</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-web</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>
 
